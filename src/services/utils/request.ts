@@ -1,14 +1,20 @@
+const URL = "https://kp.kinobox.tv/films"
+
 export const request = async (url: string, options?: any): Promise<any> => {
-	await fetch(`https://kp.kinobox.tv/films${url}`, {
+	console.log(URL + url, 'URL + url')
+	return await fetch(URL + url, {
 		method: "GET",
-		...options
+		...options,
+		next: {
+			revalidate: 60 * 60 * 10,
+		}
 	})
-		.then((res) => {
-			if (res.ok) {
-				return res.json()
-			}
-		})
+		.then((res) => res.json())
+		.then((res) => res)
 		.catch((err) => {
 			console.log(err)
+			return {
+				statusCode: 500,
+			}
 		})
 }

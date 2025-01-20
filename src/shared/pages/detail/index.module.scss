@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px 24px;
+  width: 100%;
+
+  .head {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+    .poster {
+      max-width: 320px;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .info {
+
+    }
+  }
+}

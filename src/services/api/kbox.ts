@@ -14,7 +14,7 @@ export const searchRequest = async (query: string) => {
 	return request(`/search/?query=${query}`)
 }
 
-export const getFiltDetail = async (id: string) => {
+export const getFilmDetail = async (id: string) => {
 	if (!id) return;
 	return request(`/${id}`)
 }

@@ -7,29 +7,36 @@ const Player = () => {
 
 	const containerRef = useRef(null);
 
+	// useEffect(() => {
+	// 	const script = document.createElement("script");
+	// 	script.src = "https://kinobox.tv/kinobox.min.js";
+	// 	script.async = true;
+	// 	document.body.appendChild(script);
+	//
+	// 	script.onload = () => {
+	// 		if (containerRef.current) {
+	// 			(window as any).kbox(containerRef.current, {
+	// 				search: { kinopoisk: "1381125" },
+	// 				menu: {
+	// 					enabled: true,
+	// 				}
+	// 			});
+	// 		}
+	// 	};
+	//
+	// 	return () => {
+	// 		try {
+	// 			document.body.removeChild(script);
+	// 		} catch (e) {}
+	// 	};
+	// }, [value]);
+
 	useEffect(() => {
-		const script = document.createElement("script");
-		script.src = "https://kinobox.tv/kinobox.min.js";
-		script.async = true;
-		document.body.appendChild(script);
-
-		script.onload = () => {
-			if (containerRef.current) {
-				(window as any).kbox(containerRef.current, {
-					search: { kinopoisk: "1381125" },
-					menu: {
-						enabled: true,
-					}
-				});
-			}
-		};
-
-		return () => {
-			try {
-				document.body.removeChild(script);
-			} catch (e) {}
-		};
-	}, [value]);
+		fetch("https://kp.kinobox.tv/films/search/?query=star%20wars")
+			.then(res => res.json())
+			.then((res) => console.log(res, 'result useeffect'))
+			.catch((err) => console.log(err));
+	}, []);
 
 	return (
 		<div>
