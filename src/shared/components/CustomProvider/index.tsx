@@ -1,3 +1,5 @@
+'use client';
+
 import { ReactNode, Suspense } from 'react';
 import { MantineProvider } from '@mantine/core';
 import { ModalsProvider } from '@mantine/modals';
@@ -14,7 +16,11 @@ export const CustomProvider = (props: ICustomProvider) => {
 			<MantineProvider
 				withGlobalClasses
 				withCssVariables
-				theme={{ black: '#ededed', white: "#0a0a0a" }}
+				forceColorScheme={'dark'}
+				theme={{
+					black: '#ededed',
+					white: '#0a0a0a',
+				}}
 			>
 				<ModalsProvider>
 					{children}
