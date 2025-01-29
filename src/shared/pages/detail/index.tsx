@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Player from '@/shared/components/player';
 import FilmsList from '@/shared/components/FilmsList';
+import { Title } from '@mantine/core';
 
 interface IDetail {
 	card: ISearchElem;
@@ -32,6 +33,7 @@ const Detail = (props: IDetail) => {
 				</div>
 			</div>
 			<Player id={card.id}/>
+			<Title order={2}>Похожее</Title>
 			<FilmsList films={subCards}/>
 		</div>
 	);
