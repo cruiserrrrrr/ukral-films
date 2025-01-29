@@ -1,10 +1,10 @@
 'use client';
 
 import styles from './index.module.scss';
-import FilmCard from '@/shared/components/FilmCard';
 import { ChangeEvent, useState } from 'react';
 import { searchRequest } from '@/services/api/kbox';
 import { useRouter } from 'next/navigation';
+import FilmsList from '@/shared/components/FilmsList';
 
 interface ISearch {
 	films: ISearchElem[];
@@ -43,11 +43,7 @@ const Search = (props: ISearch) => {
 					/>
 					<button type={'submit'} className={styles.button}>Search</button>
 				</form>
-				<div className={styles.list}>
-					{filmsList.map((film: ISearchElem, index: number) => (
-						<FilmCard card={film} key={index + film.title.original} />
-					))}
-				</div>
+				<FilmsList films={filmsList} />
 			</div>
 		</div>
 	);

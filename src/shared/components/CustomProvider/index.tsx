@@ -19,7 +19,7 @@ export const CustomProvider = (props: ICustomProvider) => {
 				forceColorScheme={'dark'}
 				theme={{
 					black: '#ededed',
-					white: '#0a0a0a',
+					white: '#0a0a0a'
 				}}
 			>
 				<ModalsProvider>

@@ -46,14 +46,6 @@
         cursor: pointer;
       }
     }
-
-    .list {
-      width: 100%;
-      display: grid;
-      flex-wrap: wrap;
-      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
-      gap: 6px;
-    }
   }
 
   @media screen and (max-width: 768px) {

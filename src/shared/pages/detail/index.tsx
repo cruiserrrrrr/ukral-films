@@ -2,15 +2,18 @@ import styles from './index.module.scss';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Player from '@/shared/components/player';
+import FilmsList from '@/shared/components/FilmsList';
 
 interface IDetail {
 	card: ISearchElem;
+	subCards: ISearchElem[];
 }
 
 const Detail = (props: IDetail) => {
-	const { card } = props;
+	const { card, subCards } = props;
 	console.log(card, 'card');
 	if (!card) return notFound();
+	console.log(card, 'card')
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.head}>
@@ -29,6 +32,7 @@ const Detail = (props: IDetail) => {
 				</div>
 			</div>
 			<Player id={card.id}/>
+			<FilmsList films={subCards}/>
 		</div>
 	);
 };

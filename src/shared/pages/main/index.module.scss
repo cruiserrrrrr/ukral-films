@@ -11,17 +11,21 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: var(--dark-charcoal-rgba);
-
+    color: var(--sandy-brown);
+    width: 100%;
     font-size: 170px;
+    line-height: 170px;
     font-weight: bold;
     text-align: center;
+    mix-blend-mode: difference;
 
     @media screen and (max-width: 768px) {
       font-size: 100px;
+      line-height: 100px;
     }
     @media screen and (max-width: 440px) {
       font-size: 80px;
+      line-height: 80px;
     }
   }
 
@@ -37,7 +41,7 @@
     height: 33.33svh;
     background-color: var(--bice-blue);
     animation: animate 0.5s ease-out forwards;
-    animation-delay: .5s;
+    animation-delay: .1s;
   }
 
   .red {
@@ -45,7 +49,7 @@
     height: 33.33svh;
     background-color: var(--bittersweet);
     animation: animate 0.5s ease-out forwards;
-    animation-delay: 1s;
+    animation-delay: .2s;
   }
 }
 

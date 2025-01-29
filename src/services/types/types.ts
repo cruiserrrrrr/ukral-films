@@ -1,5 +1,5 @@
 interface ISearchElem {
-	id: number;
+	id: string;
 	type: string;
 	title: {
 		russian: string;
