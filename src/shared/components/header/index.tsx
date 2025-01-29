@@ -29,7 +29,7 @@ const Header = () => {
 				{!isMobile ? (
 					<nav className={styles.nav}>
 						<button className={styles.nav_link} onClick={() => setIsSearchOpen(true)}>Поиск</button>
-						<Link href={'/catalog'} className={styles.nav_link}>Главная</Link>
+						<Link href={'/'} className={styles.nav_link}>Главная</Link>
 						<Link href={'/about'} className={styles.nav_link}>О нас</Link>
 						<Link href={'/random-film'} className={styles.nav_link}>Случайный фильм</Link>
 						<Link href={'/cabinet'} className={styles.nav_link}>Личный кабинет</Link>
@@ -48,7 +48,7 @@ const Header = () => {
 			<Drawer opened={opened} onClose={close} title="Ukral films">
 				<nav className={styles.nav}>
 					<button className={styles.nav_link} onClick={() => setIsSearchOpen(true)}>Поиск</button>
-					<Link href={'/catalog'} className={styles.nav_link}>Главная</Link>
+					<Link href={'/'} className={styles.nav_link}>Главная</Link>
 					<Link href={'/about'} className={styles.nav_link}>О нас</Link>
 					<Link href={'/random-film'} className={styles.nav_link}>Случайный фильм</Link>
 					<Link href={'/cabinet'} className={styles.nav_link}>Личный кабинет</Link>
