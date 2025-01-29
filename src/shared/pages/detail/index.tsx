@@ -1,6 +1,7 @@
 import styles from './index.module.scss';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import Player from '@/shared/components/player';
 
 interface IDetail {
 	card: ISearchElem;
@@ -27,6 +28,7 @@ const Detail = (props: IDetail) => {
 					<p>{card.description}</p>
 				</div>
 			</div>
+			<Player id={card.id}/>
 		</div>
 	);
 };

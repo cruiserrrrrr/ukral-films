@@ -1,49 +1,51 @@
-"use client";
-import {useEffect, useRef, useState} from "react";
+'use client';
+import { useEffect, useRef, useState } from 'react';
+import styles from './index.module.scss';
 
-const Player = () => {
+interface IPlayer {
+	id: string;
+}
 
-	const [value, setValue] = useState<string>("Titanic")
-
+const Player = (props: IPlayer) => {
+	
+	const { id } = props;
+	
+	const [value, setValue] = useState<string>(id);
+	
 	const containerRef = useRef(null);
-
-	// useEffect(() => {
-	// 	const script = document.createElement("script");
-	// 	script.src = "https://kinobox.tv/kinobox.min.js";
-	// 	script.async = true;
-	// 	document.body.appendChild(script);
-	//
-	// 	script.onload = () => {
-	// 		if (containerRef.current) {
-	// 			(window as any).kbox(containerRef.current, {
-	// 				search: { kinopoisk: "1381125" },
-	// 				menu: {
-	// 					enabled: true,
-	// 				}
-	// 			});
-	// 		}
-	// 	};
-	//
-	// 	return () => {
-	// 		try {
-	// 			document.body.removeChild(script);
-	// 		} catch (e) {}
-	// 	};
-	// }, [value]);
-
+	
 	useEffect(() => {
-		fetch("https://kp.kinobox.tv/films/search/?query=star%20wars")
-			.then(res => res.json())
-			.then((res) => console.log(res, 'result useeffect'))
-			.catch((err) => console.log(err));
-	}, []);
-
+		const script = document.createElement('script');
+		script.src = 'https://kinobox.tv/kinobox.min.js';
+		script.async = true;
+		document.body.appendChild(script);
+		
+		script.onload = () => {
+			if (containerRef.current) {
+				// @ts-ignore
+				new Kinobox('.kinobox_player', { search: { query: value } }).init()
+				// (window as any).kbox(containerRef.current, {
+				// 	search: { kinopoisk: '1381125' },
+				// 	menu: {
+				// 		enabled: true,
+				// 	},
+				// });
+			}
+		};
+		
+		return () => {
+			try {
+				document.body.removeChild(script);
+			} catch (e) {
+			}
+		};
+	}, [value]);
+	
 	return (
 		<div>
-			<input type="text"/>
-			<div className="kinobox_player" ref={containerRef}></div>
+			<div className={`kinobox_player ${styles.player}`} ref={containerRef}></div>
 		</div>
-	)
-}
+	);
+};
 
 export default Player;

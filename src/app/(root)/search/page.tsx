@@ -14,7 +14,7 @@ export default async function Page({ params, searchParams }: any) {
 	return (
 		<div>
 			<Search
-				films={searchInfo.data.films}
+				films={searchInfo.data.films || []}
 				searchQuery={search}
 				page={page}
 			/>

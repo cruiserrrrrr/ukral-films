@@ -32,7 +32,7 @@ const Search = (props: ISearch) => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.wrap}>
-				<h1>Результаты поиска по запросу: {searchQuery}</h1>
+				<h1 className={styles.title}>Результаты поиска по запросу: {searchQuery}</h1>
 				<form className={styles.search} onSubmit={handleSearch}>
 					<input
 						className={styles.input}

@@ -35,11 +35,14 @@ const Header = () => {
 						<Link href={'/cabinet'} className={styles.nav_link}>Личный кабинет</Link>
 					</nav>
 				) : (
-					<Burger onClick={open}/>
+					<Burger onClick={open} />
 				)}
 				<SearchModal
 					isOpen={isSearchOpen}
-					onClose={() => setIsSearchOpen(false)}
+					onClose={() => {
+						setIsSearchOpen(false);
+						close();
+					}}
 				/>
 			</div>
 			<Drawer opened={opened} onClose={close} title="Ukral films">

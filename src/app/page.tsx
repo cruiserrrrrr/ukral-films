@@ -1,11 +1,8 @@
-import Image from "next/image";
-import styles from "./page.module.scss";
-import Player from "@/shared/components/player";
+import Image from 'next/image';
+import styles from './page.module.scss';
+import Player from '@/shared/components/player';
+import Main from '@/shared/pages/main';
 
 export default function Home() {
-	return (
-		<div className={styles.page}>
-			<Player/>
-		</div>
-	);
+	return <Main />;
 }
