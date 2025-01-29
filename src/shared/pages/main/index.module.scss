@@ -35,7 +35,7 @@
   .blue {
     width: 0;
     height: 33.33svh;
-    background-color: var(--bittersweet);
+    background-color: var(--bice-blue);
     animation: animate 0.5s ease-out forwards;
     animation-delay: .5s;
   }
@@ -43,7 +43,7 @@
   .red {
     width: 0;
     height: 33.33svh;
-    background-color: var(--bice-blue);
+    background-color: var(--bittersweet);
     animation: animate 0.5s ease-out forwards;
     animation-delay: 1s;
   }
