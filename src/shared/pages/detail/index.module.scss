@@ -13,11 +13,19 @@
     .poster {
       max-width: 320px;
       height: auto;
-      object-fit: cover;
+      object-fit: contain;
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
+      }
     }
 
     .info {
 
+    }
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
     }
   }
 }
