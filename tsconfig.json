@@ -19,7 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@globals/*": ["./src/globals/*"],
+      "@public/*": ["./public/*"]
     }
   },
   "include": [

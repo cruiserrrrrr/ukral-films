@@ -1,0 +1,90 @@
+@import "../../../global/styles/mixin/mixin";
+
+.header {
+  width: 100%;
+  padding: 10px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background-color: var(--white-color);
+  //position: sticky;
+  //top: 0;
+  //left: 0;
+  //right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //padding: 12px 24px;
+  backdrop-filter: blur(14px);
+  //z-index: 10;
+  transition: all .25s ease;
+
+  //&.sticky {
+  //  position: fixed;
+  //  top: 0;
+  //  left: 0;
+  //}
+
+  .wrap {
+    position: relative;
+    @include container;
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    .logo {
+      font-weight: 600;
+      font-size: 32px;
+      text-transform: uppercase;
+    }
+
+  }
+}
+
+.nav {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+
+  &_link {
+    position: relative;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 16px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:before {
+      content: "";
+      position: absolute;
+      transform: translateX(-50%);
+      left: 50%;
+      bottom: -4px;
+      width: 0;
+      height: 0;
+      border-radius: 4px;
+      transition: .2s ease-in-out;
+      background-color: transparent;
+    }
+
+    &:hover {
+      &:before {
+        width: 100%;
+        background-color: #ffffff;
+        height: 2px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
