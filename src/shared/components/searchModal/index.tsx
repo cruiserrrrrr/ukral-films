@@ -1,5 +1,5 @@
 import styles from './index.module.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button, Input, Modal } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
@@ -17,6 +17,8 @@ const SearchModal = (props: ISearchModal) => {
 	const [query, setQuery] = useState<string>('');
 	const [isActive, setIsActive] = useState<boolean>(false);
 	const router = useRouter();
+	const searchInputRef = useRef<HTMLInputElement>(null);
+	
 	
 	const form = useForm({
 		mode: 'uncontrolled',
@@ -26,6 +28,9 @@ const SearchModal = (props: ISearchModal) => {
 	});
 	
 	useEffect(() => {
+		if(searchInputRef.current){
+			searchInputRef.current.focus();
+		}
 		if (isOpen) {
 			setIsActive(true);
 			document.body.style.overflow = 'hidden';
@@ -67,13 +72,13 @@ const SearchModal = (props: ISearchModal) => {
 					value={query}
 					onChange={(e) => setQuery(e.target.value)}
 					className={styles.input}
+					ref={searchInputRef}
 				/>
 				<Button
 					variant="default"
 					color="dark"
 					size="lg"
 					radius="xl"
-					className={styles.button}
 					onClick={handleSearch}
 				>
 					<IconSearch size={24} stroke={1.5} color={'white'} />

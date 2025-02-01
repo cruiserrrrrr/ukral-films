@@ -50,7 +50,7 @@ body {
   min-height: 100vh;
   position: relative;
   color: var(--foreground);
-  background-color: var(--background);
+  background-color: var(--background) !important;
   font-family: Inter, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

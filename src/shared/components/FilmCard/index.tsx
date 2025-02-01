@@ -22,7 +22,7 @@ const FilmCard = (props: IFilmCard) => {
 				height={250}
 			/>
 			<div className={styles.info}>
-				<p className={styles.name}>{card.title.original}</p>
+				<p className={styles.name}>{card.title.russian || card.title.original || ''}</p>
 			</div>
 		</Link>
 	);

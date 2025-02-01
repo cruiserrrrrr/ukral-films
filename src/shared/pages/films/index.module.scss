@@ -1,0 +1,23 @@
+@import "@/global/styles/mixin/mixin";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @include container;
+  margin: 0 auto;
+  gap: 40px;
+  padding-bottom: 100px;
+
+  .filters {
+    width: 100%;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 20px;
+
+    .select {
+      width: 100%;
+    }
+  }
+}

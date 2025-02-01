@@ -2,6 +2,7 @@
 
 import styles from './index.module.scss';
 import { List, Title } from '@mantine/core';
+import Link from 'next/link';
 
 const About = () => {
 	return (
@@ -10,7 +11,8 @@ const About = () => {
 				<Title order={1}>Обращение к пользователям</Title>
 				{/*<h1 className={styles.title}>Обращение к пользователям</h1>*/}
 				<p className={styles.text}>
-					Данный сайт создан исключительно в демонстрационных и образовательных целях. Мы не несем ответственности за содержимое, получаемое через API Kinobox,
+					Данный сайт создан исключительно в демонстрационных и образовательных целях. Мы не несем ответственности за содержимое, получаемое через <Link href={'https://kinobox.tv/'} style={{color: "var(--bice-blue)"}}>API
+					Kinobox</Link>,
 					а
 					также за его использование пользователями.
 				</p>
@@ -28,7 +30,8 @@ const About = () => {
 						Авторские права
 						<List withPadding listStyleType="none">
 							<List.Item className={styles.second_item}>
-								Весь контент, доступный через данный сайт, предоставляется сторонним сервисом Kinobox. Владелец сайта не хранит, не распространяет и не
+								Весь контент, доступный через данный сайт, предоставляется сторонним сервисом <Link href={'https://kinobox.tv/'} style={{color: "var(--bice-blue)"}}>Kinobox</Link>.
+								Владелец сайта не хранит, не распространяет и не
 								изменяет данные, нарушающие авторские права.
 							</List.Item>
 						</List>
@@ -38,7 +41,7 @@ const About = () => {
 						<List withPadding listStyleType="none">
 							<List.Item className={styles.second_item}>
 								Вся информация предоставляется "как есть". Владелец сайта не контролирует достоверность, актуальность и легальность материалов,
-								получаемых через API Kinobox.
+								получаемых через <Link href={'https://kinobox.tv/'} style={{color: "var(--bice-blue)"}}>API Kinobox</Link>.
 							</List.Item>
 						</List>
 					</List.Item>
@@ -46,7 +49,8 @@ const About = () => {
 						Использование API
 						<List withPadding listStyleType="none">
 							<List.Item className={styles.second_item}>
-								Этот сайт использует API Kinobox только для демонстрационных целей и не является официальным партнером или представителем данного
+								Этот сайт использует <Link href={'https://kinobox.tv/'} style={{color: "var(--bice-blue)"}}>API Kinobox</Link> только для демонстрационных целей и не является официальным партнером или представителем
+								данного
 								сервиса.
 							</List.Item>
 						</List>
@@ -55,7 +59,8 @@ const About = () => {
 						Ответственность пользователей
 						<List withPadding listStyleType="none">
 							<List.Item className={styles.second_item}>
-								Пользователи самостоятельно несут ответственность за использование информации с сайта, а также за соблюдение законодательства своей
+								Пользователи самостоятельно несут ответственность за использование информации с сайта, а также за соблюдение законодательства
+								своей
 								страны.
 							</List.Item>
 						</List>

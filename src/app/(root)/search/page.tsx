@@ -1,5 +1,6 @@
 import { searchRequest } from '@/services/api/kbox';
 import Search from '@/shared/components/search/search';
+import { notifications } from '@mantine/notifications';
 
 const empty = {
 	data: {
@@ -10,13 +11,15 @@ const empty = {
 export default async function Page({ params, searchParams }: any) {
 	const { search, page = '' } = await searchParams;
 	const searchInfo = search ? await searchRequest(search) : empty;
-	console.log(searchInfo, 'searchInfo');
+	const films = searchInfo.error ? [] : searchInfo.data.films;
+	console.log(searchInfo, 'searchInfo')
 	return (
 		<div>
 			<Search
-				films={searchInfo.data.films || []}
+				films={films}
 				searchQuery={search}
 				page={page}
+				error={searchInfo.error}
 			/>
 		</div>
 	);
