@@ -5,6 +5,7 @@ import Script from 'next/script';
 import Header from '@/shared/components/header';
 import { CustomProvider } from '@/shared/components/CustomProvider';
 import { defaultMetadata } from '@/shared/data/metadata';
+import { Analytics } from '@vercel/analytics/react';
 
 const interSans = Inter({
 	variable: '--font-geist-sans',
@@ -15,11 +16,11 @@ export const metadata: Metadata = {
 	...defaultMetadata,
 };
 
-export default function RootLayout({
-	                                   children,
-                                   }: Readonly<{
+interface IRootLayout {
 	children: React.ReactNode;
-}>) {
+}
+
+export default function RootLayout({ children }: Readonly<IRootLayout>) {
 	return (
 		<html lang="ru">
 		<body className={`${interSans.variable}`}>
@@ -27,6 +28,7 @@ export default function RootLayout({
 			<Header />
 			{children}
 		</CustomProvider>
+		<Analytics />
 		<Script strategy={'beforeInteractive'} src="https://kinobox.tv/kinobox.min.js" />
 		</body>
 		</html>
