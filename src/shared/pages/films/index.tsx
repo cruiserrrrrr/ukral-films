@@ -14,7 +14,7 @@ interface IFilms {
 }
 
 const Films = (props: IFilms) => {
-	const { films, totalPages, currentPage } = props;
+	const { films, totalPages, currentPage = 1 } = props;
 	const [a, setA] = useState<string[] | null>([]);
 	const [selectedCountry, setSelectedCountry] = useState<string[]>([]);
 	const [selectedYears, setSelectedYears] = useState<string[]>([]);
