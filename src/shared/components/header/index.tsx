@@ -30,9 +30,10 @@ const Header = () => {
 					<nav className={styles.nav}>
 						<button className={styles.nav_link} onClick={() => setIsSearchOpen(true)}>Поиск</button>
 						<Link href={'/films'} className={styles.nav_link}>Фильмы</Link>
+						<Link href={'/history'} className={styles.nav_link}>История</Link>
 						<Link href={'/about'} className={styles.nav_link}>О нас</Link>
-						<Link href={'/random-film'} className={styles.nav_link}>Случайный фильм</Link>
-						<Link href={'/cabinet'} className={styles.nav_link}>Личный кабинет</Link>
+						{/*<Link href={'/random-film'} className={styles.nav_link}>Случайный фильм</Link>*/}
+						{/*<Link href={'/cabinet'} className={styles.nav_link}>Личный кабинет</Link>*/}
 					</nav>
 				) : (
 					<Burger onClick={open} />
@@ -50,8 +51,9 @@ const Header = () => {
 					<button className={styles.nav_link} onClick={() => setIsSearchOpen(true)}>Поиск</button>
 					<Link href={'/films'} className={styles.nav_link}>Фильмы</Link>
 					<Link href={'/about'} className={styles.nav_link}>О нас</Link>
-					<Link href={'/random-film'} className={styles.nav_link}>Случайный фильм</Link>
-					<Link href={'/cabinet'} className={styles.nav_link}>Личный кабинет</Link>
+					<Link href={'/history'} className={styles.nav_link}>История</Link>
+					{/*<Link href={'/random-film'} className={styles.nav_link}>Случайный фильм</Link>*/}
+					{/*<Link href={'/cabinet'} className={styles.nav_link}>Личный кабинет</Link>*/}
 				</nav>
 			</Drawer>
 		</header>

@@ -6,6 +6,9 @@ import { ModalsProvider } from '@mantine/modals';
 import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
 import { Notifications } from '@mantine/notifications';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor, store } from '@/services/redux/store';
 
 interface ICustomProvider {
 	children: ReactNode;
@@ -37,17 +40,21 @@ export const CustomProvider = (props: ICustomProvider) => {
 	
 	return (
 		<Suspense>
-			<MantineProvider
-				withGlobalClasses
-				withCssVariables
-				forceColorScheme={'dark'}
-				theme={theme}
-			>
-				<ModalsProvider>
-					<Notifications />
-					{children}
-				</ModalsProvider>
-			</MantineProvider>
+			<Provider store={store}>
+				<PersistGate loading={null} persistor={persistor}>
+					<MantineProvider
+						withGlobalClasses
+						withCssVariables
+						forceColorScheme={'dark'}
+						theme={theme}
+					>
+						<ModalsProvider>
+							<Notifications />
+							{children}
+						</ModalsProvider>
+					</MantineProvider>
+				</PersistGate>
+			</Provider>
 		</Suspense>
 	);
 };

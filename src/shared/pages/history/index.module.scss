@@ -1,0 +1,12 @@
+@import "src/global/styles/mixin/mixin";
+
+.history{
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 40px;
+  padding-bottom: 100px;
+}
