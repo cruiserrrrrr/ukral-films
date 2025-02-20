@@ -16,8 +16,7 @@ const historySlice = createSlice({
 			const { id } = action.payload;
 			const isMovieExists = state.watchedMovies.some((movie: ISearchElem) => movie.id === id);
 			if (!isMovieExists) {
-				console.log(action.payload, 'action.payload')
-				state.watchedMovies.push(action.payload);
+				state.watchedMovies = [...state.watchedMovies, action.payload];
 			}
 		},
 		removeMovie: (state, action) => {

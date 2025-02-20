@@ -1,5 +1,5 @@
 import { searchRequest } from '@/services/api/kbox';
-import Search from '@/shared/components/search/search';
+import Search from '@/shared/pages/search/search';
 
 const empty = {
 	data: {

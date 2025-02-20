@@ -22,21 +22,21 @@ const Header = () => {
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 	
+	const openSearch = () => setIsSearchOpen(true)
+	
 	return (
 		<header className={`${styles.header} ${isSticky ? styles.sticky : ''}`}>
 			<div className={styles.wrap}>
 				<Link href={'/'} className={styles.logo}>Ukral films</Link>
 				{!isMobile ? (
 					<nav className={styles.nav}>
-						<button className={styles.nav_link} onClick={() => setIsSearchOpen(true)}>Поиск</button>
+						<button className={styles.nav_link} onClick={openSearch}>Поиск</button>
 						<Link href={'/films'} className={styles.nav_link}>Фильмы</Link>
 						<Link href={'/history'} className={styles.nav_link}>История</Link>
 						<Link href={'/about'} className={styles.nav_link}>О нас</Link>
-						{/*<Link href={'/random-film'} className={styles.nav_link}>Случайный фильм</Link>*/}
-						{/*<Link href={'/cabinet'} className={styles.nav_link}>Личный кабинет</Link>*/}
 					</nav>
 				) : (
-					<Burger onClick={open} />
+					<Burger onClick={open} color={"black"} className={styles.burger}/>
 				)}
 				<SearchModal
 					isOpen={isSearchOpen}
@@ -46,14 +46,12 @@ const Header = () => {
 					}}
 				/>
 			</div>
-			<Drawer opened={opened} onClose={close} title="Ukral films">
+			<Drawer opened={opened} onClose={close} title="Ukral films" zIndex={501}>
 				<nav className={styles.nav}>
-					<button className={styles.nav_link} onClick={() => setIsSearchOpen(true)}>Поиск</button>
-					<Link href={'/films'} className={styles.nav_link}>Фильмы</Link>
-					<Link href={'/about'} className={styles.nav_link}>О нас</Link>
-					<Link href={'/history'} className={styles.nav_link}>История</Link>
-					{/*<Link href={'/random-film'} className={styles.nav_link}>Случайный фильм</Link>*/}
-					{/*<Link href={'/cabinet'} className={styles.nav_link}>Личный кабинет</Link>*/}
+					<button className={styles.nav_link} onClick={openSearch}>Поиск</button>
+					<Link href={'/films'} className={styles.nav_link} onClick={close}>Фильмы</Link>
+					<Link href={'/about'} className={styles.nav_link} onClick={close}>О нас</Link>
+					<Link href={'/history'} className={styles.nav_link} onClick={close}>История</Link>
 				</nav>
 			</Drawer>
 		</header>

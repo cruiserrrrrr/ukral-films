@@ -5,13 +5,13 @@
   padding: 10px 24px;
   position: sticky;
   top: 0;
-  z-index: 4;
   background-color: var(--white-color);
   display: flex;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(14px);
   transition: all .25s ease;
+  z-index: 500;
 
   .wrap {
     position: relative;
@@ -28,6 +28,15 @@
       font-weight: 600;
       font-size: 32px;
       text-transform: uppercase;
+    }
+
+
+    .burger {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 4px;
     }
   }
 }

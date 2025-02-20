@@ -51,6 +51,7 @@ const Films = (props: IFilms) => {
 					className={styles.select}
 					data={filtersData.year.map((f) => f.label)}
 					onChange={setSelectedYears}
+					tabIndex={0}
 				/>
 				<MultiSelect
 					label={'Жанр'}
