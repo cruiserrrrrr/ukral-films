@@ -2,7 +2,7 @@
 
 import styles from './index.module.scss';
 import { useSelector } from 'react-redux';
-import { filmsList } from '@/services/redux/slices/history';
+import { filmsList } from '@/services/redux/slices/history/history';
 import FilmsList from '@/shared/components/FilmsList';
 import { Title } from '@mantine/core';
 
