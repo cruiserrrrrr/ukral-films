@@ -9,8 +9,16 @@
   cursor: pointer;
   overflow: hidden;
   filter: grayscale(.4);
-  //border-radius: 24px;
-  //border: 1px solid var(--foreground) !important;
+  border-radius: 12px;
+
+  .no_photo {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #181818;
+  }
 
   .poster {
     position: absolute;
@@ -28,10 +36,14 @@
     margin-top: auto;
     width: 100%;
     padding: 12px 6px;
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgb(0, 0, 0);
     backdrop-filter: blur(10px);
     z-index: 2;
     height: 60px;
+    border-radius: 0 0 14px 14px;;
+    border-left: 1px solid var(--foreground) !important;
+    border-right: 1px solid var(--foreground) !important;
+    border-bottom: 1px solid var(--foreground) !important;
 
     .name {
       position: relative;

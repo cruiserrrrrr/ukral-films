@@ -9,7 +9,6 @@ import { Title } from '@mantine/core';
 const History = () => {
 	
 	const films = useSelector(filmsList);
-	console.log(films, 'films');
 	return (
 		<div className={`container ${styles.history}`}>
 			<Title order={1}>История просмотров</Title>

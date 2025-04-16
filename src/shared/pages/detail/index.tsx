@@ -9,6 +9,7 @@ import { Title } from "@mantine/core";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { addMovie } from "@/services/redux/slices/history/history";
+import { getPosterUrl } from "@/services/utils/filmAdapter";
 
 interface IDetail {
   card: ISearchElem;
@@ -18,20 +19,20 @@ interface IDetail {
 const Detail = (props: IDetail) => {
   const { card, subCards } = props;
   const dispatch = useDispatch();
+  const posterUrl = getPosterUrl(card);
   
-  console.log(card, "card");
   useEffect(() => {
     dispatch(addMovie(card));
   }, []);
+  
   if (!card) return notFound();
-  console.log(card, "card");
   
   return (
     <div className={styles.wrapper}>
       <div className={styles.head}>
-        {card.posterUrl ? (
+        {posterUrl ? (
           <Image
-            src={card.posterUrl}
+            src={posterUrl}
             alt={card.title.original}
             width={1000}
             height={1000}
@@ -44,7 +45,7 @@ const Detail = (props: IDetail) => {
         </div>
       </div>
       <Player id={card.id} />
-      {subCards ? (
+      {subCards && subCards.length > 0 ? (
         <>
           <Title order={2}>Похожее</Title>
           <FilmsList films={subCards} />

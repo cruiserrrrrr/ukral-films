@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { convertToOldStructure } from "../../../utils/filmAdapter";
 
 interface IInitialState {
   watchedMovies: ISearchElem[];
@@ -13,16 +14,22 @@ const historySlice = createSlice({
   initialState,
   reducers: {
     addMovie: (state, action) => {
-      const { id } = action.payload;
-      const isMovieExists = state.watchedMovies.some((movie: ISearchElem) => movie.id === id);
+      // Convert to old structure for compatibility with existing Redux store
+      const movieData = convertToOldStructure(action.payload);
+      const { id } = movieData;
+      
+      const isMovieExists = state.watchedMovies.some(
+        (movie: ISearchElem) => String(movie.id) === String(id),
+      );
+      
       if (!isMovieExists) {
-        state.watchedMovies = [action.payload, ...state.watchedMovies];
+        state.watchedMovies = [movieData, ...state.watchedMovies];
       }
     },
     removeMovie: (state, action) => {
       const movieIdToRemove = action.payload;
       state.watchedMovies = state.watchedMovies.filter(
-        (movie: ISearchElem) => movie.id !== movieIdToRemove,
+        (movie: ISearchElem) => String(movie.id) !== String(movieIdToRemove),
       );
     },
   },

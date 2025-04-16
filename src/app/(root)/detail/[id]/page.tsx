@@ -26,7 +26,6 @@ export default async function Page({ params }: any) {
 	const info: IInfo = await getFilmDetail(id);
 	const card = info.data;
 	const subCards = card.title.original ? await searchRequest(card.title.original) : [];
-	console.log(subCards, 'subCards');
 	return (
 		<Detail card={card} subCards={subCards?.data?.films || []} />
 	);
