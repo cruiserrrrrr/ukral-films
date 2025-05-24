@@ -15,7 +15,7 @@ const FilmCard = (props: IFilmCard) => {
   const posterUrl = getPosterUrl(card);
   
   if (!posterUrl) return null;
-  
+  console.log(card, "card");
   return (
     <Link href={`/detail/${card.id}`} className={styles.card}>
       <Image
@@ -24,6 +24,7 @@ const FilmCard = (props: IFilmCard) => {
         alt={`Image for ${card.title.original}`}
         width={250}
         height={250}
+        unoptimized={true}
       />
       <div className={styles.no_photo}>
         <Text size={"lg"}>Картинки сломались, пока без них 🤡</Text>

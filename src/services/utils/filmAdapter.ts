@@ -10,7 +10,7 @@ export const ensureAbsoluteUrl = (url: string | null): string | null => {
   
   // If the URL starts with '//', add 'https:' prefix
   if (url.startsWith("//")) {
-    return `http:${url}/360`;
+    return `http:${url}/300x450`;
   }
   
   return url;
