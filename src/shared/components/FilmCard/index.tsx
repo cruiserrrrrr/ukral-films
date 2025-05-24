@@ -15,7 +15,7 @@ const FilmCard = (props: IFilmCard) => {
   const posterUrl = getPosterUrl(card);
   
   if (!posterUrl) return null;
-  console.log(card, "card");
+
   return (
     <Link href={`/detail/${card.id}`} className={styles.card}>
       <Image
