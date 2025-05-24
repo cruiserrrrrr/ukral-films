@@ -18,13 +18,13 @@ const FilmCard = (props: IFilmCard) => {
   
   return (
     <Link href={`/detail/${card.id}`} className={styles.card}>
-      {/*<Image*/}
-      {/*  className={styles.poster}*/}
-      {/*  src={posterUrl || noPhoto}*/}
-      {/*  alt={`Image for ${card.title.original}`}*/}
-      {/*  width={250}*/}
-      {/*  height={250}*/}
-      {/*/>*/}
+      <Image
+        className={styles.poster}
+        src={posterUrl || noPhoto}
+        alt={`Image for ${card.title.original}`}
+        width={250}
+        height={250}
+      />
       <div className={styles.no_photo}>
         <Text size={"lg"}>Картинки сломались, пока без них 🤡</Text>
       </div>

@@ -13,8 +13,8 @@ const Player = (props: IPlayer) => {
 	const [value, setValue] = useState<string>(id);
 	
 	const containerRef = useRef(null);
-	
-	useEffect(() => {
+  
+  useEffect(() => {
 		const script = document.createElement('script');
 		script.src = 'https://kinobox.tv/kinobox.min.js';
 		script.async = true;
