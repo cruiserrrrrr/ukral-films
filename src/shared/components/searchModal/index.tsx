@@ -33,10 +33,8 @@ const SearchModal = (props: ISearchModal) => {
     }
     if (isOpen) {
       setIsActive(true);
-      document.body.style.overflow = "hidden";
     } else {
       setIsActive(false);
-      document.body.style.overflow = "auto";
     }
   }, [isOpen]);
   
