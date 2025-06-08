@@ -37,7 +37,7 @@ interface ISearchElem {
   description: string | null;
   // Additional fields from new structure
   releaseDate?: string | null;
-  duration?: number | null;
+  duration?: string | number | null;
   restriction?: {
     age: string | null;
     mpaa: string | null;
@@ -45,4 +45,9 @@ interface ISearchElem {
   tagline?: string | null;
   synopsis?: string | null;
   platforms?: any[];
+  collections?: {
+    id: number;
+    name: string;
+    coverUrl: string;
+  }[];
 }

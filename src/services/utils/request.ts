@@ -1,4 +1,4 @@
-const URL = 'https://kp.kinobox.tv/films';
+const URL = 'https://kp.kinobox.tv';
 
 export const request = async (url: string, options?: any): Promise<any> => {
 	return await fetch(URL + url, {

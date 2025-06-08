@@ -14,7 +14,6 @@ const historySlice = createSlice({
   initialState,
   reducers: {
     addMovie: (state, action) => {
-      // Convert to old structure for compatibility with existing Redux store
       const movieData = convertToOldStructure(action.payload);
       const { id } = movieData;
       
@@ -27,7 +26,7 @@ const historySlice = createSlice({
       }
     },
     removeMovie: (state, action) => {
-      const movieIdToRemove = action.payload;
+      const movieIdToRemove = action.payload.id;
       state.watchedMovies = state.watchedMovies.filter(
         (movie: ISearchElem) => String(movie.id) !== String(movieIdToRemove),
       );

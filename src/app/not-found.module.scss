@@ -1,0 +1,146 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 70px);
+  background-color: #121212;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 20px;
+}
+
+.content {
+  text-align: center;
+  max-width: 800px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.errorCode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.digit {
+  font-size: 120px;
+  font-weight: bold;
+  color: #b28bff;
+  text-shadow: 0 0 15px rgba(178, 139, 255, 0.5);
+}
+
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.joke {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #cccccc;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #b28bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(178, 139, 255, 0.3);
+
+  &:hover {
+    background-color: #c9adff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(178, 139, 255, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(178, 139, 255, 0.3);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Медиа-запросы для мобильных устройств
+@media (max-width: 768px) {
+  .digit {
+    font-size: 80px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .joke {
+    font-size: 16px;
+  }
+
+  .button {
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .digit {
+    font-size: 60px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}

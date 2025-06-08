@@ -4,16 +4,17 @@ import { getPosterUrl } from "@/services/utils/filmAdapter";
 
 interface IList {
   films: ISearchElem[];
+  isHistory?: boolean;
 }
 
 const FilmsList = (props: IList) => {
-  const { films } = props;
+  const { films, isHistory = false } = props;
   return (
     <div className={styles.list}>
       {films.map((film: ISearchElem, index: number) => {
         // Only render films that have a poster URL (in either format)
         if (getPosterUrl(film)) {
-          return <FilmCard card={film} key={`${film.id}-${index}`} />;
+          return <FilmCard card={film} key={`${film.id}-${index}`} isHistory={isHistory} />;
         }
         return null;
       })}

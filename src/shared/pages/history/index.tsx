@@ -13,7 +13,7 @@ const History = () => {
 		<div className={`container ${styles.history}`}>
 			<Title order={1}>История просмотров</Title>
 			{films.length ? (
-				<FilmsList films={films} />
+				<FilmsList films={films} isHistory />
 			) : (
 				<p>История пуста</p>
 			)}

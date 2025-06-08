@@ -31,17 +31,17 @@ const processApiResponse = (response: any) => {
 
 export const searchRequest = async (query: string) => {
   if (!query) return;
-  const response = await request(`/search/?query=${query}`);
+  const response = await request(`/movies/search/?query=${query}`);
   return processApiResponse(response);
 };
 
 export const getFilmDetail = async (id: string) => {
   if (!id) return;
-  const response = await request(`/${id}`);
+  const response = await request(`/movies/${id}`);
   return processApiResponse(response);
 };
 
 export const getFilmsList = async (page = "1") => {
-  const response = await request(`/list?released=true&page=${page}`);
+  const response = await request(`/popular?page=${page}`);
   return processApiResponse(response);
 };

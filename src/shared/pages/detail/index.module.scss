@@ -11,6 +11,7 @@
 
   .head {
     display: flex;
+    align-items: flex-start;
     flex-direction: row;
     gap: 24px;
 
@@ -18,14 +19,123 @@
       max-width: 320px;
       height: auto;
       object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 
       @media screen and (max-width: 768px) {
         width: 100%;
       }
     }
 
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+
+      .title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin: 0;
+        color: #fff;
+      }
+
+      .russianTitle {
+        font-size: 1.6rem;
+        font-weight: 500;
+        margin: 0;
+        color: #ccc;
+        margin-top: -10px;
+      }
+
+      .metaInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 8px;
+
+        .metaItem {
+          display: flex;
+          font-size: 1rem;
+          gap: 8px;
+          color: #ddd;
+          line-height: 1.4;
+
+          .metaLabel {
+            min-width: 160px;
+            font-weight: 600;
+            color: #aaa;
+          }
+        }
+      }
+
+      .ratings {
+        display: flex;
+        gap: 24px;
+        margin: 16px 0;
+
+        .ratingItem {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background: rgba(255, 255, 255, 0.08);
+          padding: 12px 20px;
+          border-radius: 8px;
+          min-width: 100px;
+
+          .ratingValue {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffcc00;
+          }
+
+          .ratingSource {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-top: 4px;
+          }
+
+          .ratingCount {
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 2px;
+          }
+        }
+      }
+
+      .tagline {
+        font-style: italic;
+        color: #bbb;
+        margin: 8px 0;
+        font-size: 1.1rem;
+      }
+
+      .sectionTitle {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin: 16px 0 8px 0;
+        color: #ddd;
+      }
+
+      .description, .synopsis {
+        color: #ccc;
+        line-height: 1.6;
+        font-size: 1rem;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
     @media screen and (max-width: 768px) {
       flex-direction: column;
+
+      .info {
+        .ratings {
+          justify-content: center;
+        }
+      }
     }
   }
 }

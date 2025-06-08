@@ -10,6 +10,7 @@ const nextConfig = {
 	images: {
 		domains: ['avatars.mds.yandex.net'],
 	},
+  output: "standalone"
 };
 
 export default nextConfig;

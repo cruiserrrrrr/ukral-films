@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 import { MultiSelect, Pagination, Title } from "@mantine/core";
 import FilmsList from "@/shared/components/FilmsList";
 import filtersData from "@/shared/data/filters/filters.json";
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { getFilmsList } from "@/services/api/kbox";
 
@@ -39,6 +39,14 @@ const Films = (props: IFilms) => {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   
   const router = useRouter();
+  
+  const onlyFilms = useMemo(() => {
+    return films.filter(film => film.type === "Film");
+  }, [films]);
+  
+  const onlySeries = useMemo(() => {
+    return films.filter(film => film.type === "Series");
+  }, [films]);
   
   // Создаем маппинги для преобразования между отображаемыми значениями и значениями для URL
   const countryNameToIdMap = useMemo(() => {
@@ -138,9 +146,10 @@ const Films = (props: IFilms) => {
       const filmsData = await getFilmsList(queryParams);
       
       if (filmsData && filmsData.data) {
-        setFilms(filmsData.data.films || []);
+        setFilms(filmsData.data.items || []);
         setTotalPages(filmsData.data.total / 50);
       }
+      console.log(filmsData.data.items, "filmsData");
     } catch (error) {
       console.error("Error fetching films:", error);
     } finally {
@@ -224,7 +233,21 @@ const Films = (props: IFilms) => {
         <div className={styles.loading}>Загрузка фильмов...</div>
       ) : (
         <>
-          <FilmsList films={films} />
+          {/* Разделяем фильмы на два списка: фильмы и сериалы */}
+          {onlyFilms && onlyFilms.length ? (
+            <>
+              <Title order={2} mt="lg" mb="md">Фильмы</Title>
+              <FilmsList films={onlyFilms} />
+            </>
+          ) : null}
+          
+          {onlySeries && onlySeries.length ? (
+            <>
+              <Title order={2} mt="lg" mb="md">Сериалы</Title>
+              <FilmsList films={onlySeries} />
+            </>
+          ) : null}
+          
           <Pagination
             total={totalPages}
             onChange={handlePush}
