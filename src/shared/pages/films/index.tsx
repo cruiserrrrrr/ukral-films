@@ -3,6 +3,7 @@
 import styles from "./index.module.scss";
 import { MultiSelect, Pagination, Title } from "@mantine/core";
 import FilmsList from "@/shared/components/FilmsList";
+import FilmCardSkeleton from "@/shared/components/FilmCardSkeleton";
 import filtersData from "@/shared/data/filters/filters.json";
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
@@ -230,10 +231,14 @@ const Films = (props: IFilms) => {
       </div>
       
       {isLoading ? (
-        <div className={styles.loading}>Загрузка фильмов...</div>
+        <>
+          <Title order={2} mt="lg" mb="md">Загрузка...</Title>
+          <div className={styles.list}>
+            <FilmCardSkeleton count={12} />
+          </div>
+        </>
       ) : (
         <>
-          {/* Разделяем фильмы на два списка: фильмы и сериалы */}
           {onlyFilms && onlyFilms.length ? (
             <>
               <Title order={2} mt="lg" mb="md">Фильмы</Title>

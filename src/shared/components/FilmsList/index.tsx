@@ -12,7 +12,6 @@ const FilmsList = (props: IList) => {
   return (
     <div className={styles.list}>
       {films.map((film: ISearchElem, index: number) => {
-        // Only render films that have a poster URL (in either format)
         if (getPosterUrl(film)) {
           return <FilmCard card={film} key={`${film.id}-${index}`} isHistory={isHistory} />;
         }

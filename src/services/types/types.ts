@@ -28,7 +28,7 @@ interface ISearchElem {
     name: string;
     position: number;
   }[];
-  genres: {
+    genres: {
     id: number;
     name: string;
     slug: string | null;
